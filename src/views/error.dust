@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Error</title>
+</head>
+<body>
+
+<h1>{status}</h1>
+<pre>
+{message}
+</pre>
+{#error.stack}
+<h3>Stack</h3>
+<pre>
+{error.stack}
+</pre>
+{/error.stack}
+
+</body>
+</html>
