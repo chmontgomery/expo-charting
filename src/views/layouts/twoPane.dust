@@ -1,0 +1,12 @@
+{>"layouts/main"/}
+
+{<body}
+<navbar name="{+patientName}{/patientName}"
+        dob="{+patientDOB}{/patientDOB}"
+        id="{+patientId}{/patientId}"></navbar>
+<left-nav id="{+patientId}{/patientId}"></left-nav>
+<div class="clear:both;"></div>
+<div class="right-pane">
+  {+content}{/content}
+</div>
+{/body}

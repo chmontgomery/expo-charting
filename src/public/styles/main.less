@@ -1,0 +1,100 @@
+@import "../../../bower_components/bootstrap/less/bootstrap.less";
+@icon-font-path: "/public/fonts/";
+
+.time-slot {
+  background-color: white;
+  &:hover {
+    background-color: deepskyblue;
+  }
+}
+.time-slot.past {
+  background-color: darkgray;
+  &:hover {
+    background-color: deepskyblue;
+  }
+}
+.time-slot.overdue {
+  background-color: #ff0000;
+  &:hover {
+    background-color: deepskyblue;
+  }
+}
+.cal-cell {
+  height: 50px;
+}
+.calendar-table {
+  width: 100%;
+  th {
+    width: 30px;
+    padding: 5px;
+  }
+}
+.calendar-container {
+  position: relative;
+  .fix-left {
+    position: absolute;
+    width: 400px;
+  }
+  .scollable-right {
+    position: absolute;
+    left: 401px;
+    overflow-x: scroll;
+    right: 0px;
+    top: 0px;
+    border-right: #ddd solid 1px;
+  }
+}
+.day {
+  float: left;
+}
+.is-med-schedule {
+  margin: auto;
+  width: 16px;
+}
+.is-med-schedule-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.medication-schedule {
+  margin-top: 15px;
+}
+.left-nav {
+  float: left;
+  width: 150px;
+  margin: -20px 0 0 0;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #fff 0%, #f8f8f8 100%);
+  border-right: #e7e7e7 solid 1px;
+  .nav-link {
+    background-color: #f5f5f5;
+    width: 100%;
+    color: #777;
+    padding: 10px;
+    border-bottom: #e7e7e7 solid 1px;
+    display: block;
+    &:hover {
+      color: #555;
+      cursor: pointer;
+    }
+  }
+}
+.right-pane {
+  margin-left: 165px;
+  .table {
+    width: auto;
+  }
+}
+.patient-search-wrap {
+  width: 300px;
+  margin: 0 auto;
+}
+.patient-search {
+  margin-bottom: 15px;
+}
+.patient-search-table {
+  margin: 0 auto;
+}
+.cal-current-time {
+  float: right;
+  margin-right: 10px;
+}

@@ -1,0 +1,8 @@
+{>"layouts/main"/}
+
+{<body}
+<navbar name="{+patientName}{/patientName}"
+        dob="{+patientDOB}{/patientDOB}"
+        id="{+patientId}{/patientId}"></navbar>
+{+content}{/content}
+{/body}

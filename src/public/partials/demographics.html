@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div ng-if="!patient">
+    Find a patient to view <a href="/">here</a>.
+  </div>
+
+  <table class="table table-striped" ng-if="patient">
+    <tr>
+      <td><span class="glyphicon glyphicon-user"></span></td>
+      <td>First Name</td>
+      <td>{{patient.firstName}}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Last Name</td>
+      <td>{{patient.lastName}}</td>
+    </tr>
+    <tr>
+      <td><span class="glyphicon glyphicon-earphone"></span></td>
+      <td>Home Phone</td>
+      <td>{{patient.homePhone}}</td>
+    </tr>
+    <tr>
+      <td><span class="glyphicon glyphicon-calendar"></span></td>
+      <td>DOB</td>
+      <td>{{patient.dob}}</td>
+    </tr>
+  </table>
+
+</div>

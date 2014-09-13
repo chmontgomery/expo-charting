@@ -1,0 +1,58 @@
+<div>
+
+  <div ng-if="!patient">
+    Find a patient to view <a href="/">here</a>.
+  </div>
+
+  <div ng-if="patient">
+    <span class="cal-current-time" current-time></span>
+    <span style="clear:both;"></span>
+
+    <h2>
+      <span class="glyphicon glyphicon-circle-arrow-left small"></span>
+      {{ momentForDisplay(day) }}
+      <span class="glyphicon glyphicon-calendar small"></span>
+      <span class="glyphicon glyphicon-circle-arrow-right small"></span>
+    </h2>
+
+    <div class="calendar-container">
+      <table>
+        <tr>
+          <td>
+            <div class="fix-left">
+              <table class="calendar-table table-bordered">
+                <tr>
+                  <th>Medication</th>
+                </tr>
+                <tr ng-repeat="med in patient.medications" class="cal-cell">
+                  <td>{{ med.name }}</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td>
+            <div class="scollable-right">
+              <table class="calendar-table table-bordered">
+                <tr>
+                  <th ng-repeat="date in dates">
+                    {{ date.hour }}:{{ date.minute || "00" }}
+                  </th>
+                </tr>
+                <tr ng-repeat="med in patient.medications" class="cal-cell">
+                  <td ng-repeat="date in dates" class="time-slot cal-cell"
+                      ng-class="{'past': isPast(date), 'overdue': isOverdueSchedule(date, med)}"
+                      ng-click="editMedTime(med.id, date.hour)">
+                    <div ng-if="isMedSchedule(date, med.schedules)" class="is-med-schedule">
+                      <div class="glyphicon glyphicon-list-alt medication-schedule"></div>
+                    </div>
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+{>"layouts/twoPane"/}
+
+{<patientId}
+  {patient.id}
+{/patientId}
+
+{<patientName}
+  {patient.firstName} {patient.lastName}
+{/patientName}
+
+{<patientDOB}
+  {patient.dob}
+{/patientDOB}
+
+
+{<content}
+  <mar patient-string='{patient}'></mar>
+{/content}

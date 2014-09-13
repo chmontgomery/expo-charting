@@ -19,18 +19,50 @@ module.exports = {
     vendor: {
       scripts: [
         {
+          src: './bower_components/angular/angular.js',
+          minSrc: './bower_components/angular/angular.min.js'
+        },
+        {
+          src: './bower_components/angular-ui/build/angular-ui.js',
+          minSrc: './bower_components/angular-ui/build/angular-ui.min.js'
+        },
+        {
           src: './bower_components/jquery/dist/jquery.js',
           minSrc: './bower_components/jquery/dist/jquery.min.js'
         },
         {
+          src: './bower_components/bootstrap/dist/js/bootstrap.js',
+          minSrc: './bower_components/bootstrap/dist/js/bootstrap.min.js'
+        },
+        {
           src: './bower_components/lodash/dist/lodash.js',
           minSrc: './bower_components/lodash/dist/lodash.min.js'
+        },
+        {
+          src: './bower_components/moment/moment.js',
+          minSrc: './bower_components/moment/min/moment.min.js'
+        },
+        {
+          src: './bower_components/angular-strap/dist/angular-strap.js',
+          minSrc: './bower_components/angular-strap/dist/angular-strap.min.js'
+        },
+        {
+          src: './bower_components/angular-strap/dist/angular-strap.tpl.js',
+          minSrc: './bower_components/angular-strap/dist/angular-strap.tpl.min.js'
+        },
+        {
+          src: './bower_components/angular-animate/angular-animate.js',
+          minSrc: './bower_components/angular-animate/angular-animate.min.js'
         }
       ],
       styles: [
         {
-          src: './bower_components/bootstrap/dist/css/bootstrap.css',
-          minSrc: './bower_components/bootstrap/dist/css/bootstrap.min.css'
+          src: './bower_components/angular-ui/build/angular-ui.css',
+          minSrc: './bower_components/angular-ui/build/angular-ui.min.css'
+        },
+        {
+          src: './bower_components/bootstrap/dist/css/bootstrap-theme.css',
+          minSrc: './bower_components/bootstrap/dist/css/bootstrap-theme.min.css'
         }
       ],
       options: {
@@ -61,6 +93,10 @@ module.exports = {
     {
       src: "./bower_components/bootstrap/dist/fonts/*",
       base: './bower_components/bootstrap/dist/'
+    },
+    {
+      src: './src/public/partials/**/*.html',
+      base: './src/public'
     }
   ]
 };

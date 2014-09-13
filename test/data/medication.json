@@ -1,0 +1,28 @@
+{
+  "medications": [
+    {
+      "id": "1",
+      "name": "Imetrix"
+    },
+    {
+      "id": "2",
+      "name": "Zimotriptan"
+    },
+    {
+      "id": "3",
+      "name": "Blaboblop"
+    },
+    {
+      "id": "4",
+      "name": "BleepoBlorp"
+    },
+    {
+      "id": "5",
+      "name": "Dup"
+    },
+    {
+      "id": "5",
+      "name": "Dup"
+    }
+  ]
+}

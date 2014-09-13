@@ -6,10 +6,8 @@
   {settings.bundle.vendor.styles|s}
   {settings.bundle.main.styles|s}
 </head>
-<body>
-
+<body ng-app="expo">
 {+body}{/body}
-
 {settings.bundle.vendor.scripts|s}
 {settings.bundle.main.scripts|s}
 </body>
