@@ -1,10 +1,10 @@
-/*var scheduleService = require('./scheduleService'),
-  medicationService = require('./medicationService'),*/
 var bluebird = require('bluebird');
 var _ = require('lodash');
 var readFile = bluebird.promisify(require('fs').readFile);
 var path = require('path');
 var jsonPath = path.join(__dirname, '../../../test/data/patients.json');
+var scheduleService = require('./schedule-service');
+var medicationService = require('./medication-service');
 
 module.exports = {
   all: function () {
@@ -21,24 +21,28 @@ module.exports = {
         });
         return filtered[0];
       });
-  }/*,
+  },
   getFull: function (id) {
-    // TODO do these in parallel for performance
-    var patient = yield this.get(id);
-    var schedules = yield scheduleService.get(id);
-    var allMedications = yield medicationService.list();
+    var self = this;
 
-    _.each(_.cloneDeep(patient.medications), function (patientMed, i) {
-      var medication = _.find(allMedications, function (med) {
-        return med.id === patientMed.id;
-      });
-      patient.medications[i] = _.merge(patientMed, medication);
+    return bluebird.all([
+      self.get(id),
+      scheduleService.get(id),
+      medicationService.all()
+    ]).spread(function (patient, schedules, allMedications) {
 
-      patient.medications[i].schedules = _.filter(schedules, function (s) {
-        return s.patientId === patient.id && s.medId === patientMed.id;
+      _.each(_.cloneDeep(patient.medications), function (patientMed, i) {
+        var medication = _.find(allMedications, function (med) {
+          return med.id === patientMed.id;
+        });
+        patient.medications[i] = _.merge(patientMed, medication);
+
+        patient.medications[i].schedules = _.filter(schedules, function (s) {
+          return s.patientId === patient.id && s.medId === patientMed.id;
+        });
       });
+
+      return patient;
     });
-
-    return patient;
-  }*/
+  }
 };

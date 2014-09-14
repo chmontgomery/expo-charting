@@ -1,12 +1,23 @@
-var readFile = require(__dirname + '/../lib/readFile'),
-  _ = require('lodash');
+var bluebird = require('bluebird');
+var _ = require('lodash');
+var readFile = bluebird.promisify(require('fs').readFile);
+var path = require('path');
+var jsonPath = path.join(__dirname, '../../../test/data/schedule.json');
 
 module.exports = {
-  get: function* (patientId) {
-    var allSchedules = JSON.parse(yield readFile(__dirname + '/../../test/data/schedule.json'));
-    var filtered = _.filter(allSchedules.schedules, function(s) {
-      return s.patientId === patientId;
-    });
-    return filtered;
+  all: function () {
+    return readFile(jsonPath)
+      .then(function (scheduleJson) {
+        return JSON.parse(scheduleJson);
+      });
+  },
+  get: function (patientId) {
+    return readFile(jsonPath)
+      .then(function (scheduleJson) {
+        var allSchedules = JSON.parse(scheduleJson);
+        return _.filter(allSchedules.schedules, function (s) {
+          return s.patientId === patientId;
+        });
+      });
   }
 };

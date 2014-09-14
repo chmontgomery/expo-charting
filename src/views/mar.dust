@@ -14,5 +14,5 @@
 
 
 {<content}
-  <mar patient-string='{patient}'></mar>
+  <mar patient-string='{patientString}'></mar>
 {/content}

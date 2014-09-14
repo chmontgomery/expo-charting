@@ -14,5 +14,5 @@
 
 
 {<content}
-  <demographics patient-string='{patient}'></demographics>
+  <demographics patient-string='{patientString}'></demographics>
 {/content}
