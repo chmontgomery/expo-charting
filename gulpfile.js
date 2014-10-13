@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+  gbundle = require('gulp-bundle-assets'),
   argv = require('yargs').argv,
   path = require('path'),
   spawn = require('child_process').spawn,
@@ -86,11 +87,19 @@ gulp.task('clean', 'Clean all assets out of /public', function () {
 });
 
 gulp.task('watch', 'Watch assets and build on change', function (cb) {
-  var livereload = require('gulp-livereload'),
-    server = livereload();
-  gulp.watch([srcPublicPath + '/**/*.*'], ['bundle']); // only watch client files
-  gulp.watch([publicPath + '/**/*.*']).on('change', function (file) {
-    server.changed(file.path);
+  var livereload = require('gulp-livereload');
+  var livereloadServer = livereload();
+  livereload.listen();
+  gbundle.watch({
+    configPath: path.join(__dirname, 'bundle.config.js'),
+    results: {
+      dest: __dirname,
+      pathPrefix: '/public/'
+    },
+    dest: path.join(__dirname, publicPath)
+  });
+  gulp.watch(publicPath + '/**/*.*').on('change', function (file) {
+    livereloadServer.changed(file.path);
   });
   cb();
 });
