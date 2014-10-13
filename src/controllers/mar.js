@@ -15,7 +15,7 @@ router.get('/:id', function (req, res) {
     .then(function (patient) {
       res.render('mar', {
         patient: patient,
-        patientString: JSON.stringify(patient),
+        patientString: JSON.stringify(patient)
       });
     });
 });

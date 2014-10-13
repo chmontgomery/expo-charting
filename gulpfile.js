@@ -46,7 +46,8 @@ gulp.task('develop', 'Watch and restart server on change', function (cb) {
 }, {
   options: {
     'debug': 'Start in debug mode'
-  }
+  },
+  aliases: ['dev']
 });
 
 gulp.task('nodemon', false, function (cb) {
