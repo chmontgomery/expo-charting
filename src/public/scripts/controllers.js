@@ -40,28 +40,48 @@
         });
       }
 
-      $scope.day = moment(); // default to today
+      // default to today
+      // must be plain date so it will properly bind to ng-strap datepicker
+      $scope.day = { date: new Date() };
 
-      $scope.momentForDisplay = function (m) {
-        return m.format('MM/DD/YYYY');
+      $scope.momentForDisplay = function (d) {
+        return moment(d).format('MM/DD/YYYY');
       };
 
+      $scope.daySub = function() {
+        $scope.day.date = moment($scope.day.date).subtract('days', 1).toDate();
+      };
+
+      $scope.dayAdd = function() {
+        $scope.day.date = moment($scope.day.date).add('days', 1).toDate();
+      };
 
       $scope.editMedTime = function (medId, hour) {
         console.log(medId, hour);
       };
 
+      $scope.currentTime = new Date();
+
       $scope.getCurrentTime = function () {
-        // TODO fix
+        var currentDate = moment($scope.day.date);
         return {
-          hour: 9,
-          minute: 27
+          hour: currentDate.hour(),
+          minute: currentDate.minute(),
+          day: currentDate.date(),
+          month: currentDate.month(),
+          year: currentDate.year()
         };
       };
 
       $scope.findSchedule = function (date, schedules) {
+        var currentDay = $scope.getCurrentTime();
         return _.find(schedules, function (s) {
-          return s.hour == date.hour && s.minute == date.minute;
+          return s.hour == date.hour &&
+            s.minute == date.minute &&
+            // also match today's day, month and year
+            s.day == currentDay.day &&
+            s.month == currentDay.month &&
+            s.year == currentDay.year;
         });
       };
 

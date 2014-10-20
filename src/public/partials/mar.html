@@ -9,10 +9,18 @@
     <span style="clear:both;"></span>
 
     <h2>
-      <span class="glyphicon glyphicon-circle-arrow-left small"></span>
-      {{ momentForDisplay(day) }}
-      <span class="glyphicon glyphicon-calendar small"></span>
-      <span class="glyphicon glyphicon-circle-arrow-right small"></span>
+      <span class="glyphicon glyphicon-circle-arrow-left small mar-date-arrow"
+            ng-click="daySub()"></span>
+      {{ momentForDisplay(day.date) }}
+      <button type="button" class="btn btn-default"
+              dateType="date"
+              ng-model="day.date"
+              autoclose="true"
+              bs-datepicker>
+        <span class="glyphicon glyphicon-calendar"></span>
+      </button>
+      <span class="glyphicon glyphicon-circle-arrow-right small mar-date-arrow"
+            ng-click="dayAdd()"></span>
     </h2>
 
     <div class="calendar-container">

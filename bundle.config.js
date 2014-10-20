@@ -23,10 +23,6 @@ module.exports = {
           minSrc: './bower_components/angular/angular.min.js'
         },
         {
-          src: './bower_components/angular-ui/build/angular-ui.js',
-          minSrc: './bower_components/angular-ui/build/angular-ui.min.js'
-        },
-        {
           src: './bower_components/jquery/dist/jquery.js',
           minSrc: './bower_components/jquery/dist/jquery.min.js'
         },
@@ -56,10 +52,6 @@ module.exports = {
         }
       ],
       styles: [
-        {
-          src: './bower_components/angular-ui/build/angular-ui.css',
-          minSrc: './bower_components/angular-ui/build/angular-ui.min.css'
-        },
         {
           src: './bower_components/bootstrap/dist/css/bootstrap-theme.css',
           minSrc: './bower_components/bootstrap/dist/css/bootstrap-theme.min.css'
