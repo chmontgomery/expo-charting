@@ -120,15 +120,18 @@
 
   module.controller('LeftNavCtrl', ['$scope',
     function ($scope) {
-      if ($scope.id) {
+      $scope.isPatientId = function() {
+        return typeof $scope.patientId !== 'undefined';
+      };
+      if ($scope.patientId) {
         $scope.links = [
           {
             text: 'Demographics',
-            url: '/demographics/' + $scope.id
+            url: '/demographics/' + $scope.patientId
           },
           {
             text: 'Medications',
-            url: '/mar/' + $scope.id
+            url: '/mar/' + $scope.patientId
           },
           {
             text: 'Treatments', //TAR

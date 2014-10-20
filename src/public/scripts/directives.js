@@ -24,7 +24,7 @@
       controller: 'LeftNavCtrl',
       templateUrl: '/public/partials/leftNav.html',
       scope: {
-        id: '@'
+        patientId: '@'
       }
     };
   });

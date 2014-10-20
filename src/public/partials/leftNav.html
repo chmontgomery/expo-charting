@@ -1,4 +1,4 @@
-<div class="left-nav" ng-if="id">
+<div class="left-nav" ng-show="isPatientId()">
   <a ng-repeat="link in links"
        class="nav-link"
        href="{{ link.url }}">
