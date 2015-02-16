@@ -3,6 +3,7 @@ var logger = require(srcPath + '/lib/services/logger-service');
 var app = require(srcPath)();
 var properties = require(srcPath + '/lib/services/property-service').getProperties();
 var port = properties.get('PORT');
+var models = require("models");
 
 app.set('port', port);
 
