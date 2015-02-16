@@ -29,10 +29,10 @@ var gulp = require('gulp'),
     },
     coverageSettings: {
       thresholds: {
-        statements: 100,
-        branches: 60,
-        lines: 100,
-        functions: 100
+        statements: 60,
+        branches: 20,
+        functions: 20,
+        lines: 60
       }
     }
   };
