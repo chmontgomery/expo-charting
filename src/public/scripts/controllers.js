@@ -1,3 +1,4 @@
+/* global angular, moment, _ */
 (function () {
   'use strict';
 
@@ -76,12 +77,12 @@
       $scope.findSchedule = function (date, schedules) {
         var currentDay = $scope.getCurrentTime();
         return _.find(schedules, function (s) {
-          return s.hour == date.hour &&
-            s.minute == date.minute &&
+          return s.hour === date.hour &&
+            s.minute === date.minute &&
             // also match today's day, month and year
-            s.day == currentDay.day &&
-            s.month == currentDay.month &&
-            s.year == currentDay.year;
+            s.day === currentDay.day &&
+            s.month === currentDay.month &&
+            s.year === currentDay.year;
         });
       };
 
@@ -111,11 +112,11 @@
 
   module.controller('DemographicsCtrl', ['$scope',
     function ($scope) {
-      $scope.patient = JSON.parse($scope.patientString)
+      $scope.patient = JSON.parse($scope.patientString);
     }]);
 
   module.controller('NavbarCtrl', ['$scope',
-    function ($scope) {
+    function (/*$scope*/) {
     }]);
 
   module.controller('LeftNavCtrl', ['$scope',

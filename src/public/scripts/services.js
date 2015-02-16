@@ -1,3 +1,4 @@
+/* global angular, _ */
 (function () {
   'use strict';
 
@@ -11,13 +12,13 @@
   function getRequest($q, $http, url, dataModifier) {
     var deferred = $q.defer();
     $http({method: 'GET', url: url}).
-      success(function (data, status, headers, config) {
+      success(function (data/*, status, headers, config*/) {
         if (dataModifier) {
           dataModifier(data);
         }
         deferred.resolve(data);
       }).
-      error(function (data, status, headers, config) {
+      error(function (data/*, status, headers, config*/) {
         deferred.reject(data);
       });
     return deferred.promise;

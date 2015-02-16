@@ -1,3 +1,4 @@
+/* global angular, moment */
 (function () {
   'use strict';
 
@@ -65,7 +66,7 @@
   module.directive('currentTime', ['$interval', function ($interval) {
     return {
       restrict: 'A',
-      link: function (scope, element, attrs) {
+      link: function (scope, element/*, attrs*/) {
 
         function updateTime() {
           element.text(moment().format('MMMM Do YYYY, h:mm:ss a'));
