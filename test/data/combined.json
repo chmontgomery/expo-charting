@@ -8,9 +8,9 @@
       "schedules": [
         {
           "patientId": "1",
-          "year": 2014,
-          "month": 3,
-          "day": 18,
+          "year": 2015,
+          "month": 1,
+          "day": 22,
           "time": 7,
           "medId": "1",
           "notes": "give orally"
@@ -23,9 +23,9 @@
       "schedules": [
         {
           "patientId": "1",
-          "year": 2014,
-          "month": 3,
-          "day": 18,
+          "year": 2015,
+          "month": 1,
+          "day": 22,
           "time": 7,
           "medId": "2",
           "notes": null

@@ -2,23 +2,28 @@
   "medications": [
     {
       "id": "1",
-      "name": "Imetrix"
+      "name": "Imetrix",
+      "short_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
       "id": "2",
-      "name": "Zimotriptan"
+      "name": "Zimotriptan",
+      "short_description": "Donec lobortis id dolor."
     },
     {
       "id": "3",
-      "name": "Blaboblop"
+      "name": "Blaboblop",
+      "short_description": "Integer venenatis erat ut dui hendrerit, vitae pretium diam ultrices. Vivamus dolor velit, dictum eu odio ac, mollis facilisis turpis. "
     },
     {
       "id": "4",
-      "name": "BleepoBlorp"
+      "name": "BleepoBlorp",
+      "short_description": "Nullam condimentum rhoncus pretium. Fusce condimentum porttitor eros"
     },
     {
       "id": "5",
-      "name": "Dup"
+      "name": "Dup",
+      "short_description": "Morbi placerat est ut nisi cursus ultrices"
     },
     {
       "id": "5",

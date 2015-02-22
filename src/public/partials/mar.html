@@ -28,12 +28,16 @@
         <tr>
           <td>
             <div class="fix-left">
-              <table class="calendar-table table-bordered">
+              <table class="calendar-table table-bordered mar-head-table">
                 <tr>
                   <th>Medication</th>
                 </tr>
                 <tr ng-repeat="med in patient.medications" class="cal-cell">
-                  <td>{{ med.name }}</td>
+                  <td>
+                    <div class="med-table-head">
+                      <b>{{ med.name }}</b>&nbsp;<span class="text-muted">{{ med.short_description }}</span>
+                    </div>
+                  </td>
                 </tr>
               </table>
             </div>
