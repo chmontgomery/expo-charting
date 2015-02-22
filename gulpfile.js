@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-  gbundle = require('gulp-bundle-assets'),
   argv = require('yargs').argv,
   path = require('path'),
   spawn = require('child_process').spawn,
@@ -7,10 +6,10 @@ var gulp = require('gulp'),
   srcPublicPath = srcPath + '/public',
   publicPath = './public',
   srcJs = [
-      srcPath + '/lib/**/*.js',
-      srcPath + '/models/**/*.js',
-      srcPath + '/routes/**/*.js',
-      srcPath + '/*.js'
+    srcPath + '/lib/**/*.js',
+    srcPath + '/models/**/*.js',
+    srcPath + '/routes/**/*.js',
+    srcPath + '/*.js'
   ],
   options = {
     paths: {
@@ -18,7 +17,7 @@ var gulp = require('gulp'),
         './*.js'
       ].concat(srcJs),
       felint: [
-          srcPublicPath + '/**/*.js'
+        srcPublicPath + '/**/*.js'
       ],
       cover: [
         './server.js'
@@ -52,16 +51,20 @@ gulp.task('develop', 'Watch and restart server on change', function (cb) {
 });
 
 gulp.task('nodemon', false, function (cb) {
-  var nodemon = require('gulp-nodemon');
+  var nodemon = require('gulp-nodemon'),
+    gutil = require('gulp-util');
 
   var nodemonOpts = {
     script: 'server.js',
     ext: 'dust js',
     ignore: [ // only watch server files
-      'bower_components/*',
-      'node_modules/*',
-      'public/*',
-      'src/public/*'
+      'bower_components/**',
+      'node_modules/**',
+      'public/**',
+      'src/public/**',
+      'target/**',
+      'bundle.result.json',
+      'gulpfile.js'
     ],
     stdout: false
   };
@@ -71,10 +74,10 @@ gulp.task('nodemon', false, function (cb) {
   nodemon(nodemonOpts)
     .on('restart', function () {
       var d = new Date();
-      console.log(require('gulp-util').colors.bgBlue('server restarted at ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()));
+      console.log(gutil.colors.bgBlue('server restarted at ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()));
     })
-    .on('readable', function() {
-      var bunyan = spawn('node', [path.join(__dirname, 'node_modules/bunyan/bin/bunyan')], { stdio: ['pipe', process.stdout, process.stderr] });
+    .on('readable', function () {
+      var bunyan = spawn('node', [path.join(__dirname, 'node_modules/bunyan/bin/bunyan')], {stdio: ['pipe', process.stdout, process.stderr]});
       this.stdout.pipe(bunyan.stdin);
       this.stderr.pipe(bunyan.stdin);
     });
@@ -87,8 +90,10 @@ gulp.task('clean', 'Clean all assets out of /public', function () {
 });
 
 gulp.task('watch', 'Watch assets and build on change', function (cb) {
-  var livereload = require('gulp-livereload');
-  var livereloadServer = livereload();
+  var livereload = require('gulp-livereload'),
+    gutil = require('gulp-util'),
+    gbundle = require('gulp-bundle-assets');
+
   livereload.listen();
   gbundle.watch({
     configPath: path.join(__dirname, 'bundle.config.js'),
@@ -99,7 +104,10 @@ gulp.task('watch', 'Watch assets and build on change', function (cb) {
     dest: path.join(__dirname, publicPath)
   });
   gulp.watch(publicPath + '/**/*.*').on('change', function (file) {
-    livereloadServer.changed(file.path);
+    livereload();
+    //console.log(gutil.colors.grey('Changed:', file));
+    var d = new Date();
+    console.log(gutil.colors.bgBlue('browser livereload at ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()));
   });
   cb();
 });
