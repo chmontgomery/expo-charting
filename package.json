@@ -6,7 +6,7 @@
     "start": "node server.js",
     "test": "gulp ci",
     "preinstall": "git init && git config --global url.\"https://\".insteadOf git://",
-    "postinstall": "bower install && gulp bundle"
+    "postinstall": "gulp bundle"
   },
   "author": {
     "name": "Chris Montgomery"
@@ -28,28 +28,28 @@
     "dustjs-linkedin": "2.5.1",
     "express": "4.11.2",
     "glob": "4.4.0",
+    "gulp": "^3.8.11",
+    "gulp-bundle-assets": "^2.18.0",
+    "gulp-if": "1.2.5",
+    "gulp-less": "3.0.1",
+    "gulp-rimraf": "0.1.1",
     "hogan-express": "0.5.2",
+    "lazypipe": "0.2.2",
+    "load-common-gulp-tasks": "1.1.0",
     "lodash": "^3.3.0",
     "moment": "2.9.0",
     "morgan": "1.5.1",
     "mustlayout": "0.2.0",
     "nconf": "0.7.1",
+    "run-sequence": "1.0.2",
     "serve-favicon": "2.2.0",
     "yargs": "3.2.1"
   },
   "devDependencies": {
     "bower": "1.3.12",
-    "gulp": "^3.8.11",
-    "gulp-bundle-assets": "^2.18.0",
-    "gulp-if": "1.2.5",
-    "gulp-less": "3.0.1",
     "gulp-livereload": "3.7.0",
     "gulp-nodemon": "1.0.5",
-    "gulp-rimraf": "0.1.1",
     "gulp-util": "3.0.3",
-    "lazypipe": "0.2.2",
-    "load-common-gulp-tasks": "1.1.0",
-    "run-sequence": "1.0.2",
     "should": "5.0.1",
     "sinon": "1.12.2",
     "supertest": "0.15.0"
