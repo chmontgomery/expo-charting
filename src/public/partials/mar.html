@@ -28,22 +28,22 @@
         <tr>
           <td>
             <div class="fix-left">
-              <table class="calendar-table table-bordered mar-head-table">
+              <table class="calendar-table table-bordered calendar-table-left time-sequence-border">
                 <tr>
                   <th>Medication</th>
                 </tr>
                 <tr ng-repeat="med in patient.medications" class="cal-cell">
-                  <td>
-                    <div class="med-table-head">
+                  <td class="cal-cell">
+                    <span class="mar-med-header">
                       <b>{{ med.name }}</b>&nbsp;<span class="text-muted">{{ med.short_description }}</span>
-                    </div>
+                    </span>
                   </td>
                 </tr>
               </table>
             </div>
           </td>
           <td>
-            <div class="scollable-right">
+            <div class="scrollable-right time-sequence-border">
               <table class="calendar-table table-bordered">
                 <tr>
                   <th ng-repeat="date in dates">
