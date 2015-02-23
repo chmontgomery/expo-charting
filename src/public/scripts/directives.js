@@ -91,4 +91,16 @@
     };
   });
 
+  module.directive('createSchedule', function () {
+    return {
+      restrict: "E",
+      replace: true,
+      controller: 'CreateSchedule',
+      templateUrl: '/public/partials/createSchedule.html',
+      scope: {
+        patientId: '@'
+      }
+    };
+  });
+
 })();

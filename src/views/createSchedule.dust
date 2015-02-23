@@ -1,4 +1,4 @@
-{>"layouts/twoPane"/}
+{>"layouts/onePanePatient"/}
 
 {<patientId}
   {patient.id}
@@ -13,5 +13,5 @@
 {/patientDOB}
 
 {<content}
-  <mar patient-string='{patientString}'></mar>
+  <create-schedule patient-string='{patientString}'></create-schedule>
 {/content}

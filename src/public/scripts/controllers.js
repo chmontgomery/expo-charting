@@ -43,17 +43,17 @@
 
       // default to today
       // must be plain date so it will properly bind to ng-strap datepicker
-      $scope.day = { date: new Date() };
+      $scope.day = {date: new Date()};
 
       $scope.momentForDisplay = function (d) {
         return moment(d).format('MM/DD/YYYY');
       };
 
-      $scope.daySub = function() {
+      $scope.daySub = function () {
         $scope.day.date = moment($scope.day.date).subtract('days', 1).toDate();
       };
 
-      $scope.dayAdd = function() {
+      $scope.dayAdd = function () {
         $scope.day.date = moment($scope.day.date).add('days', 1).toDate();
       };
 
@@ -79,7 +79,7 @@
         return _.find(schedules, function (s) {
           return s.hour === date.hour &&
             s.minute === date.minute &&
-            // also match today's day, month and year
+              // also match today's day, month and year
             s.day === currentDay.day &&
             s.month === currentDay.month &&
             s.year === currentDay.year;
@@ -97,6 +97,7 @@
         }
         return date.hour < current.hour;
       };
+
       $scope.isOverdueSchedule = function (date, med) {
         if ($scope.isPast(date)) {
           var schedule = $scope.findSchedule(date, med.schedules);
@@ -107,7 +108,15 @@
         return false;
       };
 
+      $scope.createNew = function () {
+        window.location.href = '/createSchedule/' + $scope.patient.id;
+      };
 
+    }]);
+
+  module.controller('CreateSchedule', ['$scope', 'patientService',
+    function (/*$scope, patientService*/) {
+      // todo
     }]);
 
   module.controller('DemographicsCtrl', ['$scope',
@@ -121,7 +130,7 @@
 
   module.controller('LeftNavCtrl', ['$scope',
     function ($scope) {
-      $scope.isPatientId = function() {
+      $scope.isPatientId = function () {
         return typeof $scope.patientId !== 'undefined';
       };
       if ($scope.patientId) {
